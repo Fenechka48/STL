@@ -6,23 +6,27 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+//https://legacy.cplusplus.com/reference/stl/
 #define tab "\t"
 #define delimiter "\n-------------------------------\n"
 
-template<typename> T vector_propereties(const std::vector<T>& vec)
+template<typename T> void vector_propereties(const std::vector<T>& vec)
 {
 	cout << "Size:\t" << vec.size() << endl;
 	cout << "Capacity:\t" << vec.capacity() << endl;
-	cout << "Max size:\t" << vec.max() << endl;
+	cout << "Max size:\t" << vec.max_size() << endl;
 }
+//#define STL_ARRAY
+#define STL_VECTOR
+
 void main()
 {
 	setlocale(LC_ALL, "");
-#ifdef STL
+#ifdef STL_ARRAY
 
 	//array- это контейнер,который хранит данные в виде статического массива
 
-#endif // STL
+#endif // STL_ARRAY
 	const int N = 5;
 	std::array<int, N> arr = { 3,5,8 };
 	for (int i = 0; i < arr.size(); i++)
@@ -37,7 +41,7 @@ void main()
 	// это НЕ считая вставки и удаления по индексу
 	std::vector<int> vec = { 0,1,1,2,3,5,8,13,21,34 };
 	vec.resize(22);
-	for (int i = 0; i < vec.size(); i++)
+	for (int i = 0; i < vec.capacity(); i++)
 	{
 		//cout << vec[i] << tab;
 		cout << vec.at(i) << tab;
@@ -46,20 +50,20 @@ void main()
 	vec.resize(8);
 	try
 	{
-		for (int i = 0; i < vec.capasity; i++)
+		for (int i = 0; i < vec.capacity(); i++)
 		{
 			//cout << vec.[i] << tab;
 			cout << vec.at(i) << tab;
 		}
 		cout << endl;
 	}
-	catch (const std::exception&)
+	catch (const std::exception& e)
 	{
 		std::cerr << e.what() << endl;
 	}
-	vector_properties(vec);
+	vector_propereties(vec);
 	cout << delimiter << endl;
-	std::vector<int>vec2(100);
+	std::vector <int> vec2(100);
 	vector_propereties(vec2);
 	cout << delimiter << endl;
 	vec2.push_back(123);
