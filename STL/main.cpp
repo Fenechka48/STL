@@ -15,6 +15,8 @@ template<typename T> void vector_propereties(const std::vector<T>& vec)
 	cout << "Size:\t" << vec.size() << endl;
 	cout << "Capacity:\t" << vec.capacity() << endl;
 	cout << "Max size:\t" << vec.max_size() << endl;
+	cout << "Введите индекс: "; cin >> j;
+	cout << "Введите значение добавляемого элемента: "; cin >> num;
 }
 //#define STL_ARRAY
 #define STL_VECTOR
@@ -76,7 +78,11 @@ void main()
 	vec2.reserve(255);
 	vec2.resize(22);
 	vector_propereties(vec2);
-
+	cout << delimiter << endl;
+	std::vector<int>:: iterator it;
+	it = vec.begin();
+	it++;
+	cout << *it << endl;
 #endif // STL_VECTOR
 
 }
