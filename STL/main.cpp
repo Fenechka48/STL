@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include<array>
 #include <vector>
+#include<deque>
 
 using std::cin;
 using std::cout;
@@ -19,7 +20,8 @@ template<typename T> void vector_propereties(const std::vector<T>& vec)
 	cout << "Введите значение добавляемого элемента: "; cin >> num;
 }
 //#define STL_ARRAY
-#define STL_VECTOR
+//#define STL_VECTOR
+#define STL_DEQUE
 
 void main()
 {
@@ -63,26 +65,31 @@ void main()
 	{
 		std::cerr << e.what() << endl;
 	}
-	vector_propereties(vec);
-	cout << delimiter << endl;
-	std::vector <int> vec2(100);
-	vector_propereties(vec2);
-	cout << delimiter << endl;
-	vec2.push_back(123);
-	vector_propereties(vec2);
+	//vector_propereties(vec);
 	//cout << delimiter << endl;
-	//vec2.shrilink_to_fit(); // убирает всю зарезервированную память,т.е. уменьшает capacity до фактического размера
-	//vector_properties(vec2);
-	cout << delimiter << endl;
-	for (int i = 0; i < 90; i++)vec2.pop_back();
-	vec2.reserve(255);
-	vec2.resize(22);
-	vector_propereties(vec2);
-	cout << delimiter << endl;
-	std::vector<int>:: iterator it;
-	it = vec.begin();
-	it++;
-	cout << *it << endl;
+	//std::vector <int> vec2(100);
+	//vector_propereties(vec2);
+	//cout << delimiter << endl;
+	//vec2.push_back(123);
+	//vector_propereties(vec2);
+	////cout << delimiter << endl;
+	////vec2.shrilink_to_fit(); // убирает всю зарезервированную память,т.е. уменьшает capacity до фактического размера
+	////vector_properties(vec2);
+	//cout << delimiter << endl;
+	//for (int i = 0; i < 90; i++)vec2.pop_back();
+	//vec2.reserve(255);
+	//vec2.resize(22);
+	//vector_propereties(vec2);
+	//cout << delimiter << endl;
+	int index;
+	int 
 #endif // STL_VECTOR
+#ifdef STL_DEQUE
+		//deque- это контейнер, хранит данные в виде списка динамических массивов
+		// в отличии от Вектора,Deque не резервирует память, и может добавлять элементы не только в конец но и в начало
+
+
+#endif // STL_DEQUE
+
 
 }
