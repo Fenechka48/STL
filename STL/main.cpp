@@ -2,6 +2,7 @@
 #include<array>
 #include <vector>
 #include<deque>
+#include <forward_list>
 
 using std::cin;
 using std::cout;
@@ -16,12 +17,13 @@ template<typename T> void vector_propereties(const std::vector<T>& vec)
 	cout << "Size:\t" << vec.size() << endl;
 	cout << "Capacity:\t" << vec.capacity() << endl;
 	cout << "Max size:\t" << vec.max_size() << endl;
-	cout << "Введите индекс: "; cin >> j;
-	cout << "Введите значение добавляемого элемента: "; cin >> num;
+	
 }
 //#define STL_ARRAY
 //#define STL_VECTOR
-#define STL_DEQUE
+//#define STL_DEQUE
+//#define STL_LIST
+#define STL_FORWARD_LIST
 
 void main()
 {
@@ -81,8 +83,7 @@ void main()
 	//vec2.resize(22);
 	//vector_propereties(vec2);
 	//cout << delimiter << endl;
-	int index;
-	int 
+	
 #endif // STL_VECTOR
 #ifdef STL_DEQUE
 		//deque- это контейнер, хранит данные в виде списка динамических массивов
@@ -90,6 +91,47 @@ void main()
 
 
 #endif // STL_DEQUE
+#ifdef STL_LIST
+	//list - это контейнер, кроторый хранит данные в виде двусвязного списка
+	std::list<int> list = { 3, 5, 8, 13, 21 };
+	/*for (int i = 0; i < list.size(); i++)
+	{
+		cout << list[i] << tab;
+	}
+	cout << endl;*/
+	for (std::list<int>::iterator it = list.begin(); it != list.end(); ++it)
+	{
+		cout << *it << tab;
+	}
+	cout << endl;
+	for (std::list<int>::reverse_iterator rit = list.rbegin(); rit != list.rend(); ++rit)
+	{
+		cout << *rit << tab;
+	}
+	cout << endl;
 
+	int index;
+	int value;
+	cout << "Введите индекс добавляемого элемента: "; cin >> index;
+	cout << "Введите значение добавляемого элемента: "; cin >> value;
+	std::list<int>::iterator position = list.begin();
+	//for (int i = 0; i < index; i++)++position;
+	std::advance(position, index);
+	list.insert(position, value);
+	for (int i : list)cout << i << tab; cout << endl;
+#endif // STL_LIST
+
+		
+	std::forward_list<int> fl = { 0,1,1,2,3,5,8,13,21,34 };
+	fl.resize(22);
+	for (int i : fl) cout << i << tab; cout << endl;
+	cout << delimiter << endl;
+	fl.push_front(777);
+	for (int i : fl) cout << i << tab; cout << endl;
+	cout << delimiter << endl;
+	std::forward_list<int>::iterator it = fl.begin();
+	fl.insert_after(it,999);
+	for (int i : fl) cout << i << tab; cout << endl;
+	
 
 }
